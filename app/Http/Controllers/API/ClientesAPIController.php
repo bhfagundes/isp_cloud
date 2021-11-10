@@ -9,6 +9,7 @@ use App\Repositories\ClientesRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Resources\ClientesResource;
+use  App\Http\Services\TopsAppService;
 use Response;
 
 /**
@@ -60,15 +61,15 @@ class ClientesAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-
-        $clientes = $this->clientesRepository->all(
+        $clientes = (new TopsAppService('https://central.rrconect.com.br:9910','clubecerto','clube@2021','clubecerto', 61))->clientes();
+        /*$clientes = $this->clientesRepository->all(
             $request->except(['skip', 'limit']),
             $request->get('skip'),
             $request->get('limit')
-        );
+        );*/
 
 
-        return $this->sendResponse(ClientesResource::collection($clientes), 'Clientes retrieved successfully');
+        return $this->sendResponse($clientes, 'Clientes retrieved successfully');
     }
 
     /**

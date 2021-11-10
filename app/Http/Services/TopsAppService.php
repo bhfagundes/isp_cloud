@@ -11,7 +11,7 @@ class TopsAppService
     private $senha;
     private $identificador;
     private $idUsuario;
-    public function __construct(string $url,string $usuario, string $senha, string $identificador, int $idusuario)
+    public function __construct(string $url,string $usuario, string $senha, string $identificador, int $idUsuario)
     {
         $this->baseUrl = $url;
         $this->usuario = $usuario;
@@ -42,7 +42,10 @@ class TopsAppService
     }
     public function login()
     {
-        $response = $this->baseRequest(`$this->baseUrl/Login?usuario=$this->usuario&senha=$this->senha&identificador=$this->identificador`);
+        $url = $this->baseUrl.'/Login?usuario='.$this->usuario.'&senha='.$this->senha.'&identificador='.$this->identificador;
+
+        $response = $this->baseRequest($url);
+        $token = null;
         try {
             $response = json_decode($response);
             $token = $response->sessao;
@@ -56,7 +59,8 @@ class TopsAppService
         $token = $this->login();
         $clientes = null;
         if($token) {
-            $clientes = $this->baseRequest(`$this->baseUrl/ObterClientes?idUsuario=$this->idUsuario&sessao=$this->token&identificador=$this->identificador`);
+            $url = "$this->baseUrl/ObterClientes?idUsuario=$this->idUsuario&sessao=$token&identificador=$this->identificador";
+            $clientes = $this->baseRequest($url);
         }
         return $clientes;
     }
