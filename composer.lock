@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a12016dca4fbe65bc82b2c6dbebc08d",
+    "content-hash": "6ee14568239fa5837fb1ee03a55ee2e3",
     "packages": [
         {
             "name": "appointer/swaggervel",
@@ -1159,6 +1159,66 @@
                 "trusted proxy"
             ],
             "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
+            "name": "francescomalatesta/laravel-amplitude",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/francescomalatesta/laravel-amplitude.git",
+                "reference": "9b6fa734d7ca62f9b10cdcb7a7c6028b8b617874"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/francescomalatesta/laravel-amplitude/zipball/9b6fa734d7ca62f9b10cdcb7a7c6028b8b617874",
+                "reference": "9b6fa734d7ca62f9b10cdcb7a7c6028b8b617874",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.4",
+                "zumba/amplitude-php": "^1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelAmplitude\\Providers\\LaravelAmplitudeServiceProvider"
+                    ],
+                    "aliases": {
+                        "Amplitude": "LaravelAmplitude\\Facades\\Amplitude"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelAmplitude\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Francesco Malatesta",
+                    "email": "hellofrancesco@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to work with Amplitude.",
+            "homepage": "https://github.com/francescomalatesta/laravel-amplitude",
+            "keywords": [
+                "amplitude",
+                "laravel",
+                "package",
+                "php"
+            ],
+            "time": "2021-08-16T10:08:18+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -7796,6 +7856,61 @@
                 "service discovery"
             ],
             "time": "2020-11-29T21:40:13+00:00"
+        },
+        {
+            "name": "zumba/amplitude-php",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zumba/amplitude-php.git",
+                "reference": "144da6e648b21a95e5bc67e711af6858f7dae38e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zumba/amplitude-php/zipball/144da6e648b21a95e5bc67e711af6858f7dae38e",
+                "reference": "144da6e648b21a95e5bc67e711af6858f7dae38e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.2",
+                "psr/log": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "8.3.*",
+                "squizlabs/php_codesniffer": "3.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zumba\\Amplitude\\": "./src/",
+                    "Zumba\\Amplitude\\Test\\": "./test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zumba Fitness, LLC",
+                    "homepage": "https://tech.zumba.com"
+                },
+                {
+                    "name": "Jonathan Foote",
+                    "email": "jonathan.foote@zumba.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP SDK for Amplitude",
+            "homepage": "https://github.com/zumba/amplitude-php",
+            "keywords": [
+                "amplitude",
+                "analytics",
+                "sdk",
+                "tracking"
+            ],
+            "time": "2021-01-26T15:42:42+00:00"
         }
     ],
     "packages-dev": [
@@ -10084,7 +10199,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3"
+        "php": "^7.3",
+        "ext-curl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

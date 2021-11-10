@@ -7,7 +7,7 @@ class IspService
 {
     private $baseUrl;
 
-    public function __construct(String $token)
+    public function __construct(string $token)
     {
         $this->baseUrl = 'ws.integracoes.ispcloud.com.br?token='.$token;
     }
@@ -37,7 +37,7 @@ class IspService
         return $response;
     }
 
-    public function autenticacao(String $cnpjCpf)
+    public function autenticacao(string $cnpjCpf)
     {
         $bodyParams = [
             "funcao"=> "autenticar",
@@ -46,7 +46,7 @@ class IspService
         return $this->baseRequest($bodyParams);
     }
 
-    public function verificarBloqueio(Integer $idContrato)
+    public function verificarBloqueio(int $idContrato)
     {
         $bodyParams = [
             "funcao"=> "bloqueio",
@@ -55,7 +55,7 @@ class IspService
         return $this->baseRequest($bodyParams);
     }
 
-    public function debloqueio(Integer $idContrato)
+    public function desbloqueio(int $idContrato)
     {
         $bodyParams = [
             "funcao"=> "desbloqueio",
@@ -64,7 +64,7 @@ class IspService
         return $this->baseRequest($bodyParams);
     }
 
-    public function boletos(Integer $idContrato)
+    public function boletos(int $idContrato)
     {
         $bodyParams = [
             "funcao"=> "boletos",
@@ -73,7 +73,7 @@ class IspService
         return $this->baseRequest($bodyParams);
     }
 
-    public function ticket(Integer $idContrato)
+    public function ticket(int $idContrato)
     {
         $bodyParams = [
             "funcao"=> "ticket",
@@ -82,7 +82,7 @@ class IspService
         return $this->baseRequest($bodyParams);
     }
 
-    public function suporte(Integer $idContrato, Integer $subcategoria, String $problema)
+    public function suporte(int $idContrato, int $subcategoria, string $problema)
     {
         $bodyParams = [
             "funcao"=> "suporte",
@@ -101,7 +101,7 @@ class IspService
         return $this->baseRequest($bodyParams);
     }
 
-    public function consultaDadosCliente(String $cpfCnpj)
+    public function consultaDadosCliente(string $cpfCnpj)
     {
         $bodyParams = [
             "funcao"=> "consultacpf",
